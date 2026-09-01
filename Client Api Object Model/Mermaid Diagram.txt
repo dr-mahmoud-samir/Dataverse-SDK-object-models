@@ -1,0 +1,699 @@
+---
+config:
+  look: handDrawn
+  layout: dagre
+---
+classDiagram
+direction LR
+    class FormContext {
+	    +data: Data
+	    +ui: Ui
+	    +getAttribute()
+	    +getControl()
+    }
+
+    class Data {
+	    +entity: Entity
+	    +process: ProcessData
+	    +attributes: AttributeCollection
+	    +addOnLoad()
+	    +removeOnLoad()
+	    +refresh()
+	    +save()
+	    +getIsDirty()
+	    +isValid()
+    }
+
+    class Entity {
+	    +attributes: AttributeCollection
+	    +addOnSave()
+	    +addOnPostSave()
+	    +getDataXml()
+	    +getId()
+	    +getIsDirty()
+	    +isValid()
+	    +getEntityName()
+	    +getEntityReference()
+	    +getPrimaryAttributeValue()
+	    +removeOnPostSave()
+	    +removeOnSave()
+	    +save()
+    }
+
+    class ProcessData {
+    }
+
+    class ProcessEvents {
+	    +OnPreProcessStatusChange()
+	    +addOnPreProcessStatusChange(handler)
+	    +removeOnPreProcessStatusChange(handler)
+	    +OnProcessStatusChange()
+	    +addOnProcessStatusChange(handler)
+	    +removeOnProcessStatusChange(handler)
+	    +OnPreStageChange()
+	    +addOnPreStageChange(handler)
+	    +removeOnPreStageChange(handler)
+	    +OnStageChange()
+	    +addOnStageChange(handler)
+	    +removeOnStageChange(handler)
+	    +OnStageSelected()
+	    +addOnStageSelected(handler)
+	    +removeOnStageSelected(handler)
+    }
+
+    class ActiveProcess {
+	    +getActiveProcess()
+	    +setActiveProcess(processId)
+    }
+
+    class Process_ {
+	    +getId()
+	    +getName()
+	    +getStages()
+	    +isRendered()
+    }
+
+    class ProcessInstance {
+	    +getProcessInstances()
+	    +setActiveProcessInstance(instanceId)
+    }
+
+    class Instance {
+	    +getInstanceId()
+	    +getInstanceName()
+	    +getStatus()
+	    +setStatus(status)
+    }
+
+    class ActiveStage {
+	    +getActiveStage()
+	    +setActiveStage(stageId)
+    }
+
+    class Stage {
+	    +getCategory()
+	    +getEntityName()
+	    +getId()
+	    +getName()
+	    +getNavigationBehavior()
+	    +getStatus()
+	    +getSteps()
+    }
+
+    class Step {
+	    +getAttribute()
+	    +getName()
+	    +getProgress()
+	    +isRequired()
+	    +setProgress(progress)
+    }
+
+    class Navigation {
+	    +moveNext()
+	    +movePrevious()
+    }
+
+    class Others {
+	    +getActivePath()
+	    +getEnabledProcesses()
+	    +getSelectedStage()
+    }
+
+    class Ui {
+	    +controls: ControlCollection
+	    +tabs: TabCollection
+	    +navigation: NavigationCollection
+	    +formSelector: FormSelector
+	    +quickForms: QuickForms
+	    +process: ProcessUi
+	    +addOnLoad()
+	    +clearFormNotification()
+	    +close()
+	    +getFormType()
+	    +getViewPortHeight()
+	    +getViewPortWidth()
+	    +refreshRibbon()
+	    +removeOnLoad()
+	    +setFormEntityName()
+	    +setFormNotification()
+    }
+
+    class AttributeCollection {
+    }
+
+    class ControlCollection {
+    }
+
+    class Control {
+	    +addNotification()
+	    +clearNotification()
+	    +getAttribute()
+	    +getControlType()
+	    +getDisabled()
+	    +getLabel()
+	    +getName()
+	    +getOutputs()
+	    +getParent()
+	    +getVisible()
+	    +setDisabled()
+	    +setFocus()
+	    +setLabel()
+	    +setNotification()
+	    +setVisible()
+    }
+
+    class IFrameControl {
+	    +getContentWindow()
+	    +getControlType()
+	    +getDisabled()
+	    +getInitialUrl()
+	    +getLabel()
+	    +getName()
+	    +getObject()
+	    +getParent()
+	    +getSrc()
+	    +getVisible()
+	    +setDisabled()
+	    +setFocus()
+	    +setLabel()
+	    +setSrc()
+	    +setVisible()
+    }
+
+    class WebResourceControl {
+	    +getContentWindow()
+	    +getControlType()
+	    +getDisabled()
+	    +getInitialUrl()
+	    +getLabel()
+	    +getName()
+	    +getObject()
+	    +getParent()
+	    +getSrc()
+	    +getVisible()
+	    +setDisabled()
+	    +setFocus()
+	    +setLabel()
+	    +setSrc()
+	    +setVisible()
+    }
+
+    class KbSearchControl {
+	    +addOnPostSearch()
+	    +addOnResultOpened()
+	    +addOnSelection()
+	    +getControlType()
+	    +getDisabled()
+	    +getLabel()
+	    +getName()
+	    +getParent()
+	    +getSearchQuery()
+	    +getSelectedResults()
+	    +getTotalResultCount()
+	    +getVisible()
+	    +openSearchResult()
+	    +removeOnPostSearch()
+	    +removeOnResultOpened()
+	    +removeOnSelection()
+	    +setFocus()
+	    +setLabel()
+	    +setSearchQuery()
+	    +setVisible()
+    }
+
+    class LookupControl {
+	    +addCustomFilter()
+	    +addCustomView()
+	    +addNotification()
+	    +addOnLookupTagClick()
+	    +addPreSearch()
+	    +clearNotification()
+	    +getAttribute()
+	    +getControlType()
+	    +getDefaultView()
+	    +getDisabled()
+	    +getEntityTypes()
+	    +getLabel()
+	    +getName()
+	    +getParent()
+	    +getVisible()
+	    +removeOnLookupTagClick()
+	    +removePreSearch()
+	    +setDefaultView()
+	    +setDisabled()
+	    +setEntityTypes()
+	    +setFocus()
+	    +setLabel()
+	    +setNotification()
+	    +setVisible()
+    }
+
+    class ChoiceControl {
+	    +addNotification()
+	    +addOption()
+	    +clearNotification()
+	    +clearOptions()
+	    +getAttribute()
+	    +getControlType()
+	    +getDisabled()
+	    +getLabel()
+	    +getName()
+	    +getOptions()
+	    +getParent()
+	    +getVisible()
+	    +removeOption()
+	    +setDisabled()
+	    +setFocus()
+	    +setLabel()
+	    +setNotification()
+	    +setVisible()
+    }
+
+    class TimelineWallControl {
+	    +getControlType()
+	    +getDisabled()
+	    +getLabel()
+	    +getName()
+	    +getParent()
+	    +getVisible()
+	    +refresh()
+	    +setDisabled()
+	    +setFocus()
+	    +setLabel()
+	    +setVisible()
+    }
+
+    class TimerControl {
+	    +getControlType()
+	    +getDisabled()
+	    +getLabel()
+	    +getName()
+	    +getParent()
+	    +getState()
+	    +getVisible()
+	    +refresh()
+	    +setDisabled()
+	    +setFocus()
+	    +setLabel()
+	    +setVisible()
+    }
+
+    class SubgridControl {
+	    +getControlType()
+	    +getName()
+	    +getParent()
+	    +refresh()
+    }
+
+    class TabCollection {
+    }
+
+    class SectionCollection {
+    }
+
+    class NavigationCollection {
+    }
+
+    class FormSelector {
+    }
+
+    class FormItem {
+	    +getId()
+	    +getLabel()
+	    +getVisible()
+	    +setVisible()
+	    +navigate()
+    }
+
+    class NavigationItem {
+	    +getId()
+	    +getLabel()
+	    +getVisible()
+	    +setFocus()
+	    +setLabel()
+	    +setVisible()
+    }
+
+    class Process {
+	    +getDisplayState()
+	    +getVisible()
+	    +reflow()
+	    +setDisplayState()
+	    +setVisible()
+    }
+
+    class QuickForms {
+	    +getControl()
+	    +getControlType()
+	    +getDisabled()
+	    +getLabel()
+	    +getName()
+	    +getParent()
+	    +getVisible()
+	    +isLoaded()
+	    +refresh()
+	    +setDisabled()
+	    +setFocus()
+	    +setLabel()
+	    +setVisible()
+    }
+
+    class Tab {
+	    +sections: SectionCollection
+	    +addTabStateChange()
+	    +getContentType()
+	    +getDisplayState()
+	    +getLabel()
+	    +getName()
+	    +getParent()
+	    +getVisible()
+	    +removeTabStateChange()
+	    +setContentType()
+	    +setDisplayState()
+	    +setFocus()
+	    +setLabel()
+	    +setVisible()
+    }
+
+    class Section {
+	    +controls: ControlCollection
+	    +getLabel()
+	    +getName()
+	    +getParent()
+	    +getVisible()
+	    +getLabel()
+	    +setVisible()
+    }
+
+    class GridContext {
+	    GridControl
+	    Grid
+	    GridRow
+	    GridRowData
+	    GridEntity
+	    GridAttribute
+	    GridCell
+	    ViewSelector
+	    +addOnLoad()
+	    +getEntityName()
+	    +getFetchXml()
+	    +getGrid()
+	    +getRelationship()
+	    +getUrl()
+	    +getViewSelector()
+	    +openRelatedGrid()
+	    +refresh()
+	    +refreshRibbon()
+	    +removeOnLoad()
+	    +getControlType()
+	    +getDisabled()
+	    +getParent()
+	    +getVisible()
+	    +setDisabled()
+	    +setFocus()
+	    +setVisible()
+    }
+
+    class Grid {
+	    +getRows()
+	    +getSelectedRows()
+	    +getTotalRecordCount()
+    }
+
+    class GridRow {
+	    data
+    }
+
+    class GridEntity {
+	    +getEntityName()
+	    +getEntityReference()
+	    +getId()
+	    +getPrimaryAttributeValue()
+    }
+
+    class GridAttribute {
+	    +getName()
+	    +getRequiredLevel()
+	    +setRequiredLevel()
+	    +getValue()
+	    +setValue()
+    }
+
+    class GridCell {
+	    +clearNotification()
+	    +getDisabled()
+	    +setDisabled()
+	    +setNotification()
+	    +getLabel()
+    }
+
+    class ViewSelector {
+	    +getCurrentView()
+	    +isVisible()
+	    +setCurrentView()
+    }
+
+    class Xrm {
+	    +App
+	    +Copilot
+	    +Device
+	    +Encoding
+	    +Navigation
+	    +Panel
+	    +Utility
+	    +WebApi
+    }
+
+    class `Xrm.App` {
+	    +addGlobalNotification()
+	    +clearGlobalNotification()
+    }
+
+    class `Xrm.Copilot` {
+	    +executeEvent()
+	    +executePrompt()
+    }
+
+    class `Xrm.Device` {
+	    +captureAudio()
+	    +captureImage()
+	    +captureVideo()
+	    +getBarcodeValue()
+	    +getCurrentPosition()
+	    +pickFile()
+    }
+
+    class `Xrm.Encoding` {
+	    +htmlAttributeEncode()
+	    +htmlDecode()
+	    +htmlEncode()
+	    +xmlAttributeEncode()
+	    +xmlEncode()
+    }
+
+    class `Xrm.Navigation` {
+	    +navigateTo()
+	    +openAlertDialog()
+	    +openConfirmDialog()
+	    +openErrorDialog()
+	    +openFile()
+	    +openForm()
+	    +openUrl()
+	    +openWebResource()
+    }
+
+    class `Xrm.Panel` {
+	    +loadPanel()
+    }
+
+    class `Xrm.Utility` {
+	    +closeProgressIndicator()
+	    +getAllowedStatusTransitions()
+	    +getEntityMetadata()
+	    +getEntityMainFormDescriptor()
+	    +getGlobalContext()
+	    +getLearningPathAttributeName()
+	    +getPageContext()
+	    +getResourceString()
+	    +invokeProcessAction()
+	    +lookupObjects()
+	    +refreshParentGrid()
+	    +showProgressIndicator()
+    }
+
+    class `Xrm.WebApi` {
+	    +online
+	    +offline
+	    +createRecord()
+	    +deleteRecord()
+	    +retrieveRecord()
+	    +retrieveMultipleRecords()
+	    +updateRecord()
+	    +isAvailableOffline()
+	    +execute()
+	    +executeMultiple()
+    }
+
+    class MCSResponse {
+    }
+
+    class ExecutionContext {
+	    +getFormContext()
+	    +getEventArgs()
+	    +getEventSource()
+	    +getDepth()
+	    +setSharedVariable()
+	    +getSharedVariable()
+    }
+
+    class Attribute {
+	    +controls: ControlCollection
+	    +getName()
+	    +getValue()
+	    +setValue()
+	    +addOnChange()
+	    +fireOnChange()
+	    +getAttributeType()
+	    +getFormat()
+	    +getIsDirty()
+	    +getParent()
+	    +getRequiredLevel()
+	    +getSubmitMode()
+	    +getUserPrivilege()
+	    +isValid()
+	    +removeOnChange()
+	    +setRequiredLevel()
+	    +setSubmitMode()
+	    +setIsValid()
+	    +getInitialValue() // bool/choice
+	    +getIsPartyList() // lookup
+	    +getOption() // choice
+	    +getOptions() // choice
+	    +getSelectedOption() // choice
+	    +getText() // choice
+	    +getMax() //number
+	    +getMin() //number
+	    +getPrecision() // number
+	    +setPrecision() // number
+	    +getMaxLength() // string
+    }
+
+    ExecutionContext --> FormContext : getFormContext()
+    FormContext --> Data
+    FormContext --> Ui
+    Data --> Entity
+    Data --> ProcessData
+    Entity --> AttributeCollection
+    AttributeCollection "1" o-- "*" Attribute
+    Attribute "1" --> "0..*" Control : bound controls
+    Ui --> ControlCollection
+    ControlCollection "1" o-- "*" Control
+    Control <|-- IFrameControl
+    Control <|-- WebResourceControl
+    Control <|-- KbSearchControl
+    Control <|-- LookupControl
+    Control <|-- ChoiceControl
+    Control <|-- TimelineWallControl
+    Control <|-- TimerControl
+    Control <|-- SubgridControl
+    Ui --> TabCollection
+    TabCollection "1" o-- "*" Tab
+    Tab --> SectionCollection
+    SectionCollection "1" o-- "*" Section
+    Ui --> NavigationCollection
+    NavigationCollection "1" o-- "*" NavigationItem
+    Ui --> FormSelector
+    FormSelector --> "*" FormItem
+    Ui --> QuickForms
+    Ui --> Process
+    ExecutionContext -- GridContext : getFormContext()
+    GridContext -- Grid
+    GridContext -- GridRow
+    GridContext -- GridEntity
+    GridContext -- GridAttribute
+    GridContext -- GridCell
+    GridContext -- ViewSelector
+    Xrm -- `Xrm.App`
+    Xrm -- `Xrm.Copilot`
+    Xrm -- `Xrm.Device`
+    Xrm -- `Xrm.Encoding`
+    Xrm -- `Xrm.Navigation`
+    Xrm -- `Xrm.Panel`
+    Xrm -- `Xrm.Utility`
+    Xrm -- `Xrm.WebApi`
+    `Xrm.Copilot` -- MCSResponse
+    ProcessData -- ProcessEvents
+    ProcessData -- ActiveProcess
+    ProcessData -- Process_
+    ProcessData -- ProcessInstance
+    ProcessData -- Instance
+    ProcessData -- ActiveStage
+    ProcessData -- Stage
+    ProcessData -- Step
+    ProcessData -- Navigation
+    ProcessData -- Others
+
+	style IFrameControl :,stroke-width1px
+
+	class FormContext:::Sky
+	class Data:::Peach
+	class Entity:::Aqua
+	class ProcessData:::Aqua
+	class ProcessEvents:::Sky
+	class ActiveProcess:::Sky
+	class Process_:::Sky
+	class ProcessInstance:::Sky
+	class Instance:::Sky
+	class ActiveStage:::Sky
+	class Stage:::Sky
+	class Step:::Sky
+	class Navigation:::Sky
+	class Others:::Sky
+	class Ui:::Peach
+	class AttributeCollection:::Ash
+	class ControlCollection:::Peach
+	class Control:::Rose
+	class IFrameControl:::Sky
+	class WebResourceControl:::Sky
+	class KbSearchControl:::Sky
+	class LookupControl:::Sky
+	class ChoiceControl:::Sky
+	class TimelineWallControl:::Sky
+	class TimerControl:::Sky
+	class SubgridControl:::Sky
+	class TabCollection:::Peach
+	class SectionCollection:::Rose
+	class NavigationCollection:::Peach
+	class FormSelector:::Peach
+	class FormItem:::Rose
+	class NavigationItem:::Rose
+	class Process:::Peach
+	class QuickForms:::Peach
+	class Tab:::Rose
+	class Section:::Sky
+	class GridContext:::Sky
+	class Grid:::Peach
+	class GridRow:::Peach
+	class GridEntity:::Peach
+	class GridAttribute:::Peach
+	class GridCell:::Peach
+	class ViewSelector:::Peach
+	class Xrm:::Rose
+	class `Xrm.App`:::Sky
+	class `Xrm.Copilot`:::Sky
+	class `Xrm.Device`:::Sky
+	class `Xrm.Encoding`:::Sky
+	class `Xrm.Navigation`:::Sky
+	class `Xrm.Panel`:::Sky
+	class `Xrm.Utility`:::Sky
+	class `Xrm.WebApi`:::Sky
+	class MCSResponse:::Sky
+	class ExecutionContext:::Rose
+	class Attribute:::Ash
+
+	classDef Sky :,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C,stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C
+	classDef Rose :,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236
+	classDef Peach :,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D
+	classDef Aqua :,stroke-width:1px,stroke-dasharray:none,stroke:#46EDC8,fill:#DEFFF8,color:#378E7A,stroke-width:1px,stroke-dasharray:none,stroke:#46EDC8,fill:#DEFFF8,color:#378E7A
+	classDef Ash :,stroke-width:1px,stroke-dasharray:none,stroke:#999999,fill:#EEEEEE,color:#000000,stroke-width:1px,stroke-dasharray:none,stroke:#999999,fill:#EEEEEE,color:#000000
+	classDef Pine :,stroke-width:1px,stroke-dasharray:none,stroke:#254336,fill:#27654A,color:#FFFFFF
