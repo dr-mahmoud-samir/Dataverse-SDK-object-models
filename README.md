@@ -1,4 +1,3 @@
-# Dataverse-Client-API-object-model
 # Dataverse SDK Object Models
 
 A collection of open-source **Mermaid diagrams** that provide a visual reference for the Microsoft Dataverse SDK.
